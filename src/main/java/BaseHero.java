@@ -7,8 +7,9 @@ public abstract class BaseHero {
     protected int maxDmg;
     protected int minDmg;
     protected String status;
+    protected String className;
 
-    public BaseHero(int offence, int defence, int maxHp, int speed, int minDmg, int maxDmg, String status) {
+    public BaseHero(int offence, int defence, int maxHp, int speed, int minDmg, int maxDmg, String className, String status) {
         this.offence = offence;
         this.defence = defence;
         this.maxHp = maxHp;
@@ -17,6 +18,7 @@ public abstract class BaseHero {
         this.maxDmg = maxDmg;
         this.minDmg = minDmg;
         this.status = status;
+        this.className = className;
     }
 
     @Override
