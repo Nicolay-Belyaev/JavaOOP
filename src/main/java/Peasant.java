@@ -1,21 +1,8 @@
 public class Peasant extends  BaseHero {
-    private int deliviry;
+    private int delivery;
 
-    public Peasant (int offence, int defence, int hp, int speed, int deliviry, String name) {
-        this.offence = offence;
-        this.defence = defence;
-        this.hp = hp;
-        this.speed = speed;
-        this.deliviry = deliviry;
-        this.name = name;
+    public Peasant () {
+        super(1, 1, 1, 3, 1, 1, "alive");
+        this.delivery = 1;
     }
-    public Peasant (String name) {
-        this.offence = 1;
-        this.defence = 1;
-        this.hp = 1;
-        this.speed = 3;
-        this.deliviry = 1;
-        this.name = name;
-    }
-    public Peasant() {}
 }
