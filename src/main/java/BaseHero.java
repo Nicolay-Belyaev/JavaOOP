@@ -1,18 +1,18 @@
 public abstract class BaseHero {
     protected int offence;
     protected int defence;
-    protected int hp;
+    protected int currentHp;
+    protected int maxHp;
     protected int speed;
     protected int maxDmg;
     protected int minDmg;
     protected String status;
 
-    public BaseHero() {}
-
-    public BaseHero(int offence, int defence, int hp, int speed, int minDmg, int maxDmg, String status) {
+    public BaseHero(int offence, int defence, int maxHp, int speed, int minDmg, int maxDmg, String status) {
         this.offence = offence;
         this.defence = defence;
-        this.hp = hp;
+        this.maxHp = maxHp;
+        this.currentHp = maxHp;
         this.speed = speed;
         this.maxDmg = maxDmg;
         this.minDmg = minDmg;
@@ -22,6 +22,6 @@ public abstract class BaseHero {
     @Override
     public String toString() {
         return String.format("Class: %s  Hp: %d Status: %s" ,
-                this.getClass().getSimpleName(), this.hp, this.status);
+                this.getClass().getSimpleName(), this.currentHp, this.status);
     }
 }
