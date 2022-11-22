@@ -51,7 +51,6 @@ public abstract class BaseHero implements BaseInterface {
     public String getClassName() {return className;}
     //endregion
 
-    @Override
     public void Step(ArrayList<BaseHero> foes) {}
 
     public String getInfo() {
