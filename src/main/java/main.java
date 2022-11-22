@@ -1,17 +1,20 @@
 public class main {
     public static void main(String[] args) {
-        Party party = new Party();
-        party.addWarlock(1);
-        party.addMonk(1);
-        party.addSharpshooter(1);
-        party.addRogue(1);
-        party.addSpearman(1);
-        party.addPeasant(1);
-        party.addCrossbownman(1);
+        Party darkside = new Party();
+        Party ligthside = new Party();
 
+        darkside.addWarlock(1);
+        darkside.addPeasant(2);
+        darkside.addRogue(4);
+        darkside.addSharpshooter(3);
 
-        Party party1 = new Party(50);
-        Party.getHeroesByClass("warlock", party1);
+        ligthside.addMonk(1);
+        ligthside.addPeasant(2);
+        ligthside.addSpearman(4);
+        ligthside.addCrossbownman(3);
+
+        System.out.println(Party.getHeroesByClass("peasant", darkside));
+        System.out.println(Party.getHeroesByClass("spearman", ligthside));
     }
 }
 
