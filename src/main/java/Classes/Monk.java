@@ -12,7 +12,7 @@ public class Monk extends BaseHero {
     public void Step(ArrayList<BaseHero> foes) {
         BaseHero lowestHpCharacter = side.get(0);
         for (BaseHero character : side) {
-            if (character.currentHp < lowestHpCharacter.currentHp) {
+            if (character.currentHp < lowestHpCharacter.currentHp && character.status.equals("dead")) {
                 lowestHpCharacter = character;
             }
         }

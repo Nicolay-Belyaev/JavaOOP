@@ -30,14 +30,14 @@ public class Party extends ArrayList<BaseHero> {
         return resString.toString();
     }
 
-    public static String getHeroesByClass(String heroClass, Party party) {
+    public static Party getHeroesByClass(String heroClass, Party party) {
         Party oneClassHeroes = new Party();
         for (BaseHero character : party) {
             if (character.getClassName().equals(heroClass.toLowerCase())) {
                 oneClassHeroes.add(character);
             }
         }
-        return oneClassHeroes.toString();
+        return oneClassHeroes;
     }
 
     //region методы для добавления персонажей в группу

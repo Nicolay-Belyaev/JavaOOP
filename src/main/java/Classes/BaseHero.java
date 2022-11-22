@@ -31,13 +31,22 @@ public abstract class BaseHero implements BaseInterface {
 
     protected void ActionAttack(BaseHero target) {
         target.setCurrentHp(target.currentHp - maxDmg);
-        if (target.currentHp < 0) {
-            target.currentHp = 0;
+        CheckStatus();
+    }
+
+    public void CheckStatus() {
+        if (currentHp <= 0) {
+            currentHp = 0;
+            status = "dead";
+        } else {
+            status = "alive";
         }
     }
 
     //region get-set
     public void setCurrentHp(int currentHp) {this.currentHp = currentHp;}
+
+    public int getCurrentHp() {return currentHp;}
 
     public String getClassName() {return className;}
     //endregion
