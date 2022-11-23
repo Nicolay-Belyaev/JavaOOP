@@ -19,8 +19,8 @@ public class main {
         System.out.println(darkside);
 
         for (BaseHero character : darkside) {
-            character.setCurrentHp(character.getCurrentHp() - 1); // божественным вмешательством выдали всем леща.
-            character.CheckStatus(); // не все переживут божественного леща
+            character.setCurrentHp(character.getCurrentHp() - 1); // все получили божественного чапалаха.
+            character.CheckStatus(); // и не все его переживут.
         }
 
         darkside.get(9).setCurrentHp(5);
