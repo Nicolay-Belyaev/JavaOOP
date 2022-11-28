@@ -13,12 +13,10 @@ public class ConsoleView {
                 System.out.print(getChar(new CharsCoords(j, i)));
             }
             System.out.println("|");
-            System.out.println(mid);
+            if (i < main.fieldSize - 1) {
+                System.out.println(mid);
+            }
         }
-        for (int j = 1; j <= main.fieldSize; j++) {
-            System.out.print(getChar(new CharsCoords(j, main.fieldSize)));
-        }
-        System.out.println("|");
         System.out.println(bot);
     }
 
