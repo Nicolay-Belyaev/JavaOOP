@@ -7,13 +7,13 @@ public class main {
 
         darkside.addWarlock(1);
         darkside.addPeasant(2);
-        darkside.addRogue(2);
-        darkside.addSharpshooter(2);
+        darkside.addRogue(4);
+        darkside.addSharpshooter(3);
 
         ligthside.addMonk(1);
         ligthside.addPeasant(2);
-        ligthside.addLancer(1);
-        ligthside.addCrossbownman(4);
+        ligthside.addLancer(4);
+        ligthside.addCrossbownman(1);
 
         ConsoleView.view();
 
