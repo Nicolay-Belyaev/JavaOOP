@@ -3,9 +3,10 @@ import java.util.ArrayList;
 
 public class Monk extends BaseHero {
 
-    public Monk(ArrayList<BaseHero> side) {
+    public Monk(ArrayList<BaseHero> side, int x, int y) {
         super(12, 7, 30, 5, -4, -4, "monk", "alive");
         super.side = side;
+        super.coords = new CharsCoords(x, y);
     }
 
     @Override

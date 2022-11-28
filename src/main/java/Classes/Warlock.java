@@ -3,9 +3,10 @@ import java.util.ArrayList;
 
 public class Warlock extends BaseHero {
 
-    public Warlock(ArrayList<BaseHero> side) {
+    public Warlock(ArrayList<BaseHero> side, int x, int y) {
         super(17, 12, 30, 9, -5, -5, "warlock","alive");
         super.side = side;
+        super.coords = new CharsCoords(x, y);
     }
 
     @Override

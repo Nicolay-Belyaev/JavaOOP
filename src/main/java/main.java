@@ -1,32 +1,32 @@
-import Classes.*;
+import Classes.BaseHero;
 
 public class main {
-    public static void main(String[] args) {
-        Party darkside = new Party();
-        Party ligthside = new Party();
+    public static final int fieldSize = 10;
+    public static Party darkside = new Party();
+    public static Party ligthside = new Party();
 
-        darkside.add(new Warlock(darkside));
+    public static void main(String[] args) {
+
+        darkside.addWarlock(1);
         darkside.addPeasant(2);
         darkside.addRogue(4);
         darkside.addSharpshooter(3);
 
-        ligthside.add(new Monk(ligthside));
+        ligthside.addMonk(1);
         ligthside.addPeasant(2);
         ligthside.addSpearman(4);
         ligthside.addCrossbownman(3);
 
-
-        System.out.println(darkside);
+        ConsoleView.view();
 
         for (BaseHero character : darkside) {
-            character.setCurrentHp(character.getCurrentHp() - 1); // все получили божественного чапалаха.
-            character.CheckStatus(); // и не все его переживут.
+            System.out.println(character.getInfo());
         }
-
-        darkside.get(9).setCurrentHp(5);
-        System.out.println(darkside);
-        darkside.get(0).Step(darkside);
-        System.out.println(darkside);
+        System.out.println();
+        for (BaseHero character2 : ligthside) {
+            System.out.println(character2.getInfo());
+        }
     }
 }
+
 

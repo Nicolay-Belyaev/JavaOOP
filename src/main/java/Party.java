@@ -1,24 +1,24 @@
-import java.util.ArrayList;
-import java.util.Random;
 import Classes.*;
+
+import java.util.ArrayList;
 
 public class Party extends ArrayList<BaseHero> {
     public Party() {}
-    public Party(int partySize) {
-        Random rand = new Random();
-        for (int i = 0; i < partySize; i++) {
-            int charSelector = rand.nextInt(0, 7);
-            switch (charSelector) {
-                case 0 -> this.add(new Peasant());
-                case 1 -> this.add(new Rogue());
-                case 2 -> this.add(new Sharpshooter());
-                case 3 -> this.add(new Spearman());
-                case 4 -> this.add(new Warlock(this));
-                case 5 -> this.add(new Monk(this));
-                case 6 -> this.add(new Crossbowman());
-            }
-        }
-    }
+//    public Party(int partySize) {
+//        Random rand = new Random();
+//        for (int i = 0; i < partySize; i++) {
+//            int charSelector = rand.nextInt(0, 7);
+//            switch (charSelector) {
+//                case 0 -> this.add(new Peasant(this));
+//                case 1 -> this.add(new Rogue(this));
+//                case 2 -> this.add(new Sharpshooter(this));
+//                case 3 -> this.add(new Spearman(this));
+//                case 4 -> this.add(new Warlock(this));
+//                case 5 -> this.add(new Monk(this));
+//                case 6 -> this.add(new Crossbowman(this));
+//            }
+//        }
+//    }
 
     @Override
     public String toString() {
@@ -43,37 +43,51 @@ public class Party extends ArrayList<BaseHero> {
     //region методы для добавления персонажей в группу
     public void addPeasant(int peasants) {
         for (int i = 0; i < peasants; i++) {
-            this.add(new Peasant());
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Peasant(this, x, y));
         }
     }
     public void addRogue(int rogues) {
         for (int i = 0; i < rogues; i++) {
-            this.add(new Rogue());
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Rogue(this, x, y));
         }
     }
     public void addSharpshooter(int sharpshooters) {
         for (int i = 0; i < sharpshooters; i++) {
-            this.add(new Sharpshooter());
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Sharpshooter(this, x, y));
         }
     }
     public void addWarlock(int warlocks) {
         for (int i = 0; i < warlocks; i++) {
-            this.add(new Warlock(this));
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Warlock(this, x, y));
         }
     }
     public void addMonk(int monks) {
         for (int i = 0; i < monks; i++) {
-            this.add(new Monk(this));
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Monk(this, x, y));
         }
     }
     public void addSpearman(int spearmans) {
         for (int i = 0; i < spearmans; i++) {
-            this.add(new Spearman());
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Spearman(this, x, y));
         }
     }
     public void addCrossbownman(int crossbownmans) {
         for (int i = 0; i < crossbownmans; i++) {
-            this.add(new Crossbowman());
+            int x = this == main.darkside ? 0 : 9;
+            int y = this.size();
+            this.add(new Crossbowman(this, x, y));
         }
     }
     //endregion

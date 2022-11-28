@@ -13,6 +13,7 @@ public abstract class BaseHero implements BaseInterface {
     protected String status;
     protected String className;
     protected ArrayList<BaseHero> side;
+    protected CharsCoords coords;
 
     public BaseHero(int offence, int defence,
                     int maxHp, int speed,
@@ -46,7 +47,7 @@ public abstract class BaseHero implements BaseInterface {
     //region get-set
     public void setCurrentHp(int currentHp) {this.currentHp = currentHp;}
 
-    public int getCurrentHp() {return currentHp;}
+    public CharsCoords getCoords() {return coords;}
 
     public String getClassName() {return className;}
     //endregion
@@ -54,7 +55,7 @@ public abstract class BaseHero implements BaseInterface {
     public void Step(ArrayList<BaseHero> foes) {}
 
     public String getInfo() {
-        return String.format("Class: %s  Hp: %d Status: %s" ,
-                this.className, this.currentHp, this.status);
+        return String.format("Class: %s  Hp: %d Status: %s Coords X: %d, Y, %d" ,
+                this.className, this.currentHp, this.status, this.coords.x, this.coords.y);
     }
 }
