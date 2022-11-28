@@ -43,49 +43,49 @@ public class Party extends ArrayList<BaseHero> {
     //region методы для добавления персонажей в группу
     public void addPeasant(int peasants) {
         for (int i = 0; i < peasants; i++) {
-            int x = this == main.darkside ? 0 : 9;
+            int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
             this.add(new Peasant(this, x, y));
         }
     }
     public void addRogue(int rogues) {
         for (int i = 0; i < rogues; i++) {
-            int x = this == main.darkside ? 0 : 9;
+            int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
             this.add(new Rogue(this, x, y));
         }
     }
     public void addSharpshooter(int sharpshooters) {
         for (int i = 0; i < sharpshooters; i++) {
-            int x = this == main.darkside ? 0 : 9;
+            int x = (this == main.darkside)? 0 : main.fieldSize-1;
             int y = this.size();
             this.add(new Sharpshooter(this, x, y));
         }
     }
     public void addWarlock(int warlocks) {
         for (int i = 0; i < warlocks; i++) {
-            int x = this == main.darkside ? 0 : 9;
+            int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
             this.add(new Warlock(this, x, y));
         }
     }
     public void addMonk(int monks) {
         for (int i = 0; i < monks; i++) {
-            int x = this == main.darkside ? 0 : 9;
+            int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
             this.add(new Monk(this, x, y));
         }
     }
-    public void addSpearman(int spearmans) {
-        for (int i = 0; i < spearmans; i++) {
-            int x = this == main.darkside ? 0 : 9;
+    public void addLancer(int lancer) {
+        for (int i = 0; i < lancer; i++) {
+            int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Spearman(this, x, y));
+            this.add(new Lancer(this, x, y));
         }
     }
     public void addCrossbownman(int crossbownmans) {
         for (int i = 0; i < crossbownmans; i++) {
-            int x = this == main.darkside ? 0 : 9;
+            int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
             this.add(new Crossbowman(this, x, y));
         }

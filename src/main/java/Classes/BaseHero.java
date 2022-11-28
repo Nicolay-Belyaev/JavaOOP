@@ -55,7 +55,7 @@ public abstract class BaseHero implements BaseInterface {
     public void Step(ArrayList<BaseHero> foes) {}
 
     public String getInfo() {
-        return String.format("Class: %s  Hp: %d Status: %s Coords X: %d, Y, %d" ,
-                this.className, this.currentHp, this.status, this.coords.x, this.coords.y);
+        return String.format("%s Hp: %d/%d Status: %s ",
+                this.className, this.currentHp, this.maxHp, this.status);
     }
 }
