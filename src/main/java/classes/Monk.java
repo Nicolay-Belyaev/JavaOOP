@@ -1,10 +1,10 @@
-package Classes;
+package classes;
 import java.util.ArrayList;
 
-public class Warlock extends BaseHero {
+public class Monk extends BaseHero {
 
-    public Warlock(ArrayList<BaseHero> side, int x, int y) {
-        super(17, 12, 30, 9, -5, -5, "warlock","alive");
+    public Monk(ArrayList<BaseHero> side, int x, int y) {
+        super(12, 7, 30, 5, -4, -4, "monk", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
     }

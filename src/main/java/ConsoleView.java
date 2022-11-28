@@ -1,9 +1,9 @@
-import Classes.CharsCoords;
+import classes.CharsCoords;
 import java.util.Collections;
 
 public class ConsoleView {
-    private static int darksideSize = main.darkside.size();
-    private static int ligthsideSize = main.ligthside.size();
+    private static final int darksideSize = main.darkside.size();
+    private static final int ligthsideSize = main.ligthside.size();
     private static final String top = "              " + "Darkside:" + "              " +
                                       "\u250c" +
                                       String.join("", Collections.nCopies(main.fieldSize-1, "\u2500\u252c")) +
@@ -34,7 +34,7 @@ public class ConsoleView {
             }
             try {
                 String infoLightside = main.ligthside.get(i).getInfo();
-                currentCharInfo.append(" " + infoLightside);
+                currentCharInfo.append(" ").append(infoLightside);
             } catch (IndexOutOfBoundsException ignored) {}
             System.out.println(currentCharInfo);
             //endregion
@@ -55,7 +55,7 @@ public class ConsoleView {
             for (int i = 0; i < ligthsideSize; i++) {
             if (main.ligthside.get(i).getCoords().equals(position)){
                 str = "|" + Colors.BLUE + main.ligthside.get(i).getClassName().toUpperCase().charAt(0) + Colors.RESET;
-            };
+            }
         }
         return str;
     }

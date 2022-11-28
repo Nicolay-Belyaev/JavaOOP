@@ -5,10 +5,10 @@ public class main {
 
     public static void main(String[] args) {
 
-        darkside.addWarlock(1);
-        darkside.addPeasant(2);
-        darkside.addRogue(4);
-        darkside.addSharpshooter(3);
+        darkside.addWarlock(5);
+        darkside.addPeasant(1);
+        darkside.addRogue(1);
+        darkside.addWarlock(2);
 
         ligthside.addMonk(1);
         ligthside.addPeasant(2);
