@@ -2,11 +2,11 @@ package classes;
 
 import utils.Party;
 
-public class Sharpshooter extends BaseHero {
-    private int shots = 32;
+public class Xbowman extends BaseHero {
+    private int shots = 16;
 
-    public Sharpshooter(Party side, int x, int y) {
-        super(12, 10, 15, 9, 8, 10, "sharpshooter", "alive");
+    public Xbowman(Party side, int x, int y) {
+        super(6, 3, 10, 4, 2, 3, "xbowman", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
     }
@@ -51,4 +51,3 @@ public class Sharpshooter extends BaseHero {
         }
     }
 }
-

@@ -1,4 +1,8 @@
+package utils;
+
 import classes.CharsCoords;
+import main.main;
+
 import java.util.Collections;
 
 public class ConsoleView {

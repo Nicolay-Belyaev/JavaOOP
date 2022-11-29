@@ -1,10 +1,12 @@
-import classes.*;
+package utils;
 
+import classes.*;
+import main.main;
 import java.util.ArrayList;
 
 public class Party extends ArrayList<BaseHero> {
     public Party() {}
-//    public Party(int partySize) {
+//    public utils.Party(int partySize) {
 //        Random rand = new Random();
 //        for (int i = 0; i < partySize; i++) {
 //            int charSelector = rand.nextInt(0, 7);
@@ -30,9 +32,19 @@ public class Party extends ArrayList<BaseHero> {
         return resString.toString();
     }
 
-    public static Party getHeroesByClass(String heroClass, Party party) {
+    public Party getAliveHeroes() {
+        Party aliveHeroes = new Party();
+        for (BaseHero character : this) {
+            if (!character.getStatus().equals("dead")) {
+                aliveHeroes.add(character);
+            }
+        }
+        return aliveHeroes;
+    }
+
+    public Party getHeroesByClass(String heroClass) {
         Party oneClassHeroes = new Party();
-        for (BaseHero character : party) {
+        for (BaseHero character : this) {
             if (character.getClassName().equals(heroClass.toLowerCase())) {
                 oneClassHeroes.add(character);
             }
@@ -87,7 +99,7 @@ public class Party extends ArrayList<BaseHero> {
         for (int i = 0; i < crossbownmans; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Crossbowman(this, x, y));
+            this.add(new Xbowman(this, x, y));
         }
     }
     //endregion

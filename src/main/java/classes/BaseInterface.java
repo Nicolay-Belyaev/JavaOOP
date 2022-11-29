@@ -1,8 +1,7 @@
 package classes;
-
-import java.util.ArrayList;
+import utils.Party;
 
 public interface BaseInterface {
-    void Step(ArrayList<BaseHero> party);
+    void step(Party party);
     String getInfo();
 }

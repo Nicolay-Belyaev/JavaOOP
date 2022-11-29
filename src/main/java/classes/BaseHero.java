@@ -1,18 +1,18 @@
 package classes;
 
-import java.util.ArrayList;
+import utils.Party;
 
 public abstract class BaseHero implements BaseInterface {
     protected int offence;
     protected int defence;
-    protected int currentHp;
+    protected float currentHp;
     protected int maxHp;
     protected int speed;
     protected int maxDmg;
     protected int minDmg;
     protected String status;
     protected String className;
-    protected ArrayList<BaseHero> side;
+    protected Party side;
     protected CharsCoords coords;
 
     public BaseHero(int offence, int defence,
@@ -31,7 +31,21 @@ public abstract class BaseHero implements BaseInterface {
     }
 
     protected void ActionAttack(BaseHero target) {
-        target.setCurrentHp(target.currentHp - maxDmg);
+        float damage;
+        if (this.offence - target.defence > 0) {
+            damage = this.maxDmg;
+        }
+        else if (this.offence - target.defence < 0) {
+            damage = this.minDmg;
+        }
+        else {
+            damage = (this.maxDmg + this.minDmg) / 2;
+        }
+        target.getAttack(damage);
+    }
+
+    protected void getAttack(float damage) {
+        this.currentHp = this.currentHp - damage;
         CheckStatus();
     }
 
@@ -45,17 +59,19 @@ public abstract class BaseHero implements BaseInterface {
     }
 
     //region get-set
-    public void setCurrentHp(int currentHp) {this.currentHp = currentHp;}
+    public void setCurrentHp(float currentHp) {this.currentHp = currentHp;}
+
+    public String getStatus() {return status;}
 
     public CharsCoords getCoords() {return coords;}
 
     public String getClassName() {return className;}
     //endregion
 
-    public void Step(ArrayList<BaseHero> foes) {}
+    public void step(Party foes) {}
 
     public String getInfo() {
         return String.format("%s Hp: %d/%d Status: %s ",
-                this.className, this.currentHp, this.maxHp, this.status);
+                this.className, (int) this.currentHp, this.maxHp, this.status);
     }
 }
