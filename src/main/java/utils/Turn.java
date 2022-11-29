@@ -5,17 +5,8 @@ import main.main;
 
 public class Turn {
     public static void Turn() {
-        for (BaseHero character : main.darkside
-                .getHeroesByClass("sharpshooter")
-                .getAliveHeroes()) {
-            character.step(main.ligthside);
-        }
-        for (BaseHero character : main.ligthside
-                .getHeroesByClass("xbowman")
-                .getAliveHeroes()) {
-            character.step(main.darkside);
-        }
 
+        //region melee
         for (BaseHero character : main.darkside
                 .getHeroesByClass("rogue")
                 .getAliveHeroes()) {
@@ -26,7 +17,22 @@ public class Turn {
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }
+        //endregion
 
+        //region RDD
+        for (BaseHero character : main.darkside
+                .getHeroesByClass("sharpshooter")
+                .getAliveHeroes()) {
+            character.step(main.ligthside);
+        }
+        for (BaseHero character : main.ligthside
+                .getHeroesByClass("xbowman")
+                .getAliveHeroes()) {
+            character.step(main.darkside);
+        }
+        //endregion
+
+        //region Support
         for (BaseHero character : main.darkside
                 .getHeroesByClass("warlock")
                 .getAliveHeroes()) {
@@ -37,7 +43,9 @@ public class Turn {
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }
+        //endregion
 
+        //region Peasants
         for (BaseHero character : main.darkside
                 .getHeroesByClass("peasant")
                 .getAliveHeroes()) {
@@ -49,6 +57,7 @@ public class Turn {
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }
+        //endregion
 
 
     }
