@@ -8,12 +8,12 @@ public class Turn {
 
         //region melee
         for (BaseHero character : main.darkside
-                .getHeroesByClass("rogue")
+                .getHeroesByClass("Rogue")
                 .getAliveHeroes()) {
             character.step(main.ligthside);
         }
         for (BaseHero character : main.ligthside
-                .getHeroesByClass("lancer")
+                .getHeroesByClass("Lancer")
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }
@@ -21,12 +21,12 @@ public class Turn {
 
         //region RDD
         for (BaseHero character : main.darkside
-                .getHeroesByClass("sharpshooter")
+                .getHeroesByClass("Sharpshooter")
                 .getAliveHeroes()) {
             character.step(main.ligthside);
         }
         for (BaseHero character : main.ligthside
-                .getHeroesByClass("xbowman")
+                .getHeroesByClass("Xbowman")
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }
@@ -34,12 +34,12 @@ public class Turn {
 
         //region Support
         for (BaseHero character : main.darkside
-                .getHeroesByClass("warlock")
+                .getHeroesByClass("Warlock")
                 .getAliveHeroes()) {
             character.step(main.ligthside);
         }
         for (BaseHero character : main.ligthside
-                .getHeroesByClass("monk")
+                .getHeroesByClass("Monk")
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }
@@ -47,13 +47,13 @@ public class Turn {
 
         //region Peasants
         for (BaseHero character : main.darkside
-                .getHeroesByClass("peasant")
+                .getHeroesByClass("Peasant")
                 .getAliveHeroes()) {
             character.step(main.ligthside);
         }
 
         for (BaseHero character : main.ligthside
-                .getHeroesByClass("peasant")
+                .getHeroesByClass("Peasant")
                 .getAliveHeroes()) {
             character.step(main.darkside);
         }

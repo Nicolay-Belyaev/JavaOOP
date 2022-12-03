@@ -2,25 +2,28 @@ package utils;
 
 import classes.*;
 import main.main;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Party extends ArrayList<BaseHero> {
     public Party() {}
-//    public utils.Party(int partySize) {
-//        Random rand = new Random();
-//        for (int i = 0; i < partySize; i++) {
-//            int charSelector = rand.nextInt(0, 7);
-//            switch (charSelector) {
-//                case 0 -> this.add(new Peasant(this));
-//                case 1 -> this.add(new Rogue(this));
-//                case 2 -> this.add(new Sharpshooter(this));
-//                case 3 -> this.add(new Spearman(this));
-//                case 4 -> this.add(new Warlock(this));
-//                case 5 -> this.add(new Monk(this));
-//                case 6 -> this.add(new Crossbowman(this));
-//            }
-//        }
-//    }
+
+    public Party(int partySize) {
+        Random rand = new Random();
+        for (int i = 0; i < partySize; i++) {
+            int charSelector = rand.nextInt(0, 7);
+            switch (charSelector) {
+                case 0 -> this.addPeasant(1);
+                case 1 -> this.addRogue(1);
+                case 2 -> this.addSharpshooter(1);
+                case 3 -> this.addLancer(1);
+                case 4 -> this.addWarlock(1);
+                case 5 -> this.addMonk(1);
+                case 6 -> this.addCrossbownman(1);
+            }
+        }
+    }
 
     @Override
     public String toString() {
@@ -45,7 +48,7 @@ public class Party extends ArrayList<BaseHero> {
     public Party getHeroesByClass(String heroClass) {
         Party oneClassHeroes = new Party();
         for (BaseHero character : this) {
-            if (character.getClassName().equals(heroClass.toLowerCase())) {
+            if (character.getClassName().equals(heroClass)) {
                 oneClassHeroes.add(character);
             }
         }

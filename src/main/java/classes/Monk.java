@@ -5,7 +5,7 @@ import utils.Party;
 public class Monk extends BaseHero {
 
     public Monk(Party side, int x, int y) {
-        super(12, 7, 30, 5, -4, -4, "monk", "alive");
+        super(12, 7, 30, 5, -4, -4, "Monk", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
     }

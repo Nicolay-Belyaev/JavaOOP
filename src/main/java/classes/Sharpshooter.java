@@ -6,24 +6,9 @@ public class Sharpshooter extends BaseHero {
     private int shots = 32;
 
     public Sharpshooter(Party side, int x, int y) {
-        super(12, 10, 15, 9, 8, 10, "sharpshooter", "alive");
+        super(12, 10, 15, 9, 8, 10, "Sharpshooter", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-    }
-
-    private void ActionAttack(BaseHero target, double distance) {
-        float damage;
-        if (this.offence - target.defence > 0) {
-            damage = this.maxDmg;
-        }
-        else if (this.offence - target.defence < 0) {
-            damage = this.minDmg;
-        }
-        else {
-            damage = (this.maxDmg + this.minDmg) / 2;
-        }
-        damage = distance < this.speed ? damage : damage/2;
-        target.getAttack(damage);
     }
 
     @Override
@@ -47,7 +32,7 @@ public class Sharpshooter extends BaseHero {
                 }
             }
             shots--;
-            ActionAttack(closedEnemy, minDistance);
+            ActionAttack(closedEnemy);
         }
     }
 }
