@@ -1,10 +1,8 @@
 package utils;
 
-import classes.BaseHero;
 import classes.CharsCoords;
 import main.main;
 
-import java.util.ArrayList;
 import java.util.Collections;
 
 public class ConsoleView {
@@ -63,12 +61,6 @@ public class ConsoleView {
     }
 
     private static String getChar(CharsCoords position) {
-
-        ArrayList<CharsCoords> darksideCoords = new ArrayList<>();
-        for (BaseHero character : main.darkside) {
-            darksideCoords.add(character.getCoords());
-        }
-
         String str = "| ";
         for (int i = 0; i < darksideSize; i++) {
             if (main.darkside.get(i).getCoords().equals(position)) {

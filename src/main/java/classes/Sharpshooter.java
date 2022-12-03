@@ -1,5 +1,6 @@
 package classes;
 
+import utils.Pair;
 import utils.Party;
 
 public class Sharpshooter extends BaseHero {
@@ -21,18 +22,9 @@ public class Sharpshooter extends BaseHero {
             }
         }
         if (shots != 0) {
-            Party aliveEnemies = foes.getAliveHeroes();
-            BaseHero closedEnemy = aliveEnemies.get(0);
-            double minDistance = this.coords.distance(closedEnemy.coords);
-            for (BaseHero currentEnemy : aliveEnemies) {
-                double enemyDistance = this.coords.distance(currentEnemy.coords);
-                if (enemyDistance < minDistance) {
-                    minDistance = enemyDistance;
-                    closedEnemy = currentEnemy;
-                }
-            }
+            Pair<BaseHero, Double> closedEnemyAndDistance = getClosedEnemyAndDistance(foes);
             shots--;
-            ActionAttack(closedEnemy);
+            ActionAttack(closedEnemyAndDistance.getKey());
         }
     }
 }

@@ -31,6 +31,8 @@ public abstract class BaseHero implements BaseInterface {
         this.className = className;
     }
 
+    //region Amen and attack!
+    public void step(Party foes) {}
     protected void ActionAttack(BaseHero target) {
         int damage = DamageCalc(target);
         target.getAttack(damage);
@@ -38,50 +40,13 @@ public abstract class BaseHero implements BaseInterface {
 
     protected int DamageCalc(BaseHero target) {
         int damage;
-        if (this.offence - target.defence > 0) {
-            damage = this.maxDmg;
-        }
-        else if (this.offence - target.defence < 0) {
-            damage = this.minDmg;
-        }
-        else {
-            damage = (this.maxDmg + this.minDmg) / 2;
-        }
+        if (this.offence - target.defence > 0)      {damage = this.maxDmg;}
+        else if (this.offence - target.defence < 0) {damage = this.minDmg;}
+        else                                        {damage = (this.maxDmg + this.minDmg) / 2;}
         return damage;
     }
 
-    protected void getAttack(int damage) {
-        this.currentHp = this.currentHp - damage;
-        CheckStatus();
-    }
-
-    public void CheckStatus() {
-        if (currentHp <= 0) {
-            currentHp = 0;
-            status = "dead";
-        } else {
-            status = "alive";
-        }
-    }
-
-    //region get-set
-    public void setCurrentHp(int currentHp) {this.currentHp = currentHp;}
-
-    public void setCoords(CharsCoords coords) {
-        this.coords.x = coords.x;
-        this.coords.y = coords.y;
-    }
-
-    public String getStatus() {return status;}
-
-    public CharsCoords getCoords() {return coords;}
-
-    public String getClassName() {return className;}
-    //endregion
-
-    public void step(Party foes) {}
-
-    public Pair <BaseHero, Double> getClosedEnemyAndDistance (Party foes) {
+    public Pair<BaseHero, Double> getClosedEnemyAndDistance (Party foes) {
         Party aliveEnemies = foes.getAliveHeroes();
         BaseHero closedEnemy = aliveEnemies.get(0);
         double minDistance = this.coords.distance(closedEnemy.coords);
@@ -92,12 +57,27 @@ public abstract class BaseHero implements BaseInterface {
                 closedEnemy = currentEnemy;
             }
         }
-        Pair <BaseHero, Double> ClosedEnemyAndDistance = new Pair<>(closedEnemy, minDistance);
-        return ClosedEnemyAndDistance;
+        return new Pair<>(closedEnemy, minDistance);
     }
+    protected void getAttack(int damage) {
+        this.currentHp = this.currentHp - damage;
+        CheckStatus();
+    }
+
+    public void CheckStatus() {
+        if (currentHp <= 0) {
+            currentHp = 0;
+            status = "dead";
+        } else {status = "alive";}
+    }
+    //endregion
 
     public String getInfo() {
         return String.format("%s HP: %d/%d Status: %s",
                 this.className, this.currentHp, this.maxHp, this.status);
     }
+
+    public String getStatus() {return status;}
+    public CharsCoords getCoords() {return coords;}
+    public String getClassName() {return className;}
 }

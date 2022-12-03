@@ -13,16 +13,16 @@ public class main {
 
     public static void main(String[] args) {
 
-//        darkside.addRogue(2);
-        darkside.addWarlock(1);
-//        darkside.addRogue(1);
-        darkside.addSharpshooter(1);
-        darkside.addPeasant(3);
 
-        ligthside.addLancer(1);
+        darkside.addRogue(2);
+        darkside.addWarlock(1);
+        darkside.addSharpshooter(1);
+        darkside.addPeasant(2);
+
+        ligthside.addLancer(2);
         ligthside.addMonk(1);
-//        ligthside.addPeasant(1);
-        ligthside.addLancer(4);
+        ligthside.addPeasant(1);
+        ligthside.addLancer(2);
         ligthside.addCrossbownman(2);
 
         while (true){
