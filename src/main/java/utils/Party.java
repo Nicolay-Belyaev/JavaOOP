@@ -9,6 +9,11 @@ import java.util.Random;
 public class Party extends ArrayList<BaseHero> {
     public Party() {}
 
+    public Party(Party party1, Party party2) {
+        this.addAll(party1);
+        this.addAll(party2);
+    }
+
     public Party(int partySize) {
         Random rand = new Random();
         for (int i = 0; i < partySize; i++) {
@@ -43,6 +48,16 @@ public class Party extends ArrayList<BaseHero> {
             }
         }
         return aliveHeroes;
+    }
+
+    public Party getDeadHeroes() {
+        Party deadHeroes = new Party();
+        for (BaseHero character : this) {
+            if (character.getStatus().equals("dead")) {
+                deadHeroes.add(character);
+            }
+        }
+        return deadHeroes;
     }
 
     public Party getHeroesByClass(String heroClass) {
@@ -105,5 +120,6 @@ public class Party extends ArrayList<BaseHero> {
             this.add(new Xbowman(this, x, y));
         }
     }
+
     //endregion
 }

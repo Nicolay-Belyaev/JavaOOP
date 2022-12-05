@@ -10,9 +10,9 @@ public class Turn {
         for (BaseHero character : main.darkside
                 .getHeroesByClass("Rogue")
                 .getAliveHeroes()) {
-            character.step(main.ligthside);
+            character.step(main.lightside);
         }
-        for (BaseHero character : main.ligthside
+        for (BaseHero character : main.lightside
                 .getHeroesByClass("Lancer")
                 .getAliveHeroes()) {
             character.step(main.darkside);
@@ -23,9 +23,9 @@ public class Turn {
         for (BaseHero character : main.darkside
                 .getHeroesByClass("Sharpshooter")
                 .getAliveHeroes()) {
-            character.step(main.ligthside);
+            character.step(main.lightside);
         }
-        for (BaseHero character : main.ligthside
+        for (BaseHero character : main.lightside
                 .getHeroesByClass("Xbowman")
                 .getAliveHeroes()) {
             character.step(main.darkside);
@@ -36,9 +36,9 @@ public class Turn {
         for (BaseHero character : main.darkside
                 .getHeroesByClass("Warlock")
                 .getAliveHeroes()) {
-            character.step(main.ligthside);
+            character.step(main.lightside);
         }
-        for (BaseHero character : main.ligthside
+        for (BaseHero character : main.lightside
                 .getHeroesByClass("Monk")
                 .getAliveHeroes()) {
             character.step(main.darkside);
@@ -49,10 +49,10 @@ public class Turn {
         for (BaseHero character : main.darkside
                 .getHeroesByClass("Peasant")
                 .getAliveHeroes()) {
-            character.step(main.ligthside);
+            character.step(main.lightside);
         }
 
-        for (BaseHero character : main.ligthside
+        for (BaseHero character : main.lightside
                 .getHeroesByClass("Peasant")
                 .getAliveHeroes()) {
             character.step(main.darkside);

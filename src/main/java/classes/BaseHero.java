@@ -80,4 +80,5 @@ public abstract class BaseHero implements BaseInterface {
     public String getStatus() {return status;}
     public CharsCoords getCoords() {return coords;}
     public String getClassName() {return className;}
+    public Party getSide() {return side;}
 }

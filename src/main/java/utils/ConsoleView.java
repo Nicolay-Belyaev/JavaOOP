@@ -1,13 +1,12 @@
 package utils;
 
+import classes.BaseHero;
 import classes.CharsCoords;
 import main.main;
 
 import java.util.Collections;
 
 public class ConsoleView {
-    private static final int darksideSize = main.darkside.size();
-    private static final int ligthsideSize = main.ligthside.size();
     private static final String top = String.join("", Collections.nCopies(22, " ")) +
                                       "Darkside:" +
                                       String.join("", Collections.nCopies(14, " "))  +
@@ -25,6 +24,7 @@ public class ConsoleView {
                                       "\u2514" +
                                       String.join("", Collections.nCopies(main.fieldSize-1, "\u2500\u2534")) +
                                       "\u2500\u2518";
+    private static final Party allHeroes = new Party(main.lightside, main.darkside);
 
     public static void view() {
         System.out.println(top);
@@ -49,12 +49,11 @@ public class ConsoleView {
             String infoDarkside = main.darkside.get(i).getInfo();
             currentCharInfo.replace(0, infoDarkside.length(), infoDarkside);
         } catch (IndexOutOfBoundsException ignored) {}
-
         for (int j = 0; j < main.fieldSize+1; j++) {
             currentCharInfo.append(getChar(new CharsCoords(j, i)));
         }
         try {
-            String infoLightside = main.ligthside.get(i).getInfo();
+            String infoLightside = main.lightside.get(i).getInfo();
             currentCharInfo.append(" ").append(infoLightside);
         } catch (IndexOutOfBoundsException ignored) {}
         System.out.println(currentCharInfo);
@@ -62,24 +61,19 @@ public class ConsoleView {
 
     private static String getChar(CharsCoords position) {
         String str = "| ";
-        for (int i = 0; i < darksideSize; i++) {
-            if (main.darkside.get(i).getCoords().equals(position)) {
-                if (main.darkside.get(i).getStatus().equals("dead")) {
-                    str = "|" + Colors.RED + main.darkside.get(i).getClassName().toUpperCase().charAt(0) + Colors.RESET;
-                } else {
-                    str = "|" + Colors.GREEN + main.darkside.get(i).getClassName().toUpperCase().charAt(0) + Colors.RESET;
-                }
 
+        for (BaseHero character : allHeroes.getDeadHeroes()) {
+            if(character.getCoords().equals(position)) {
+                    str = "|" + Colors.RED + character.getClassName().charAt(0) + Colors.RESET;
+                }
             }
-        }
-            for (int i = 0; i < ligthsideSize; i++) {
-            if (main.ligthside.get(i).getCoords().equals(position)){
-                if (main.ligthside.get(i).getStatus().equals("dead")) {
-                    str = "|" + Colors.RED + main.ligthside.get(i).getClassName().toUpperCase().charAt(0) + Colors.RESET;
+        for (BaseHero character : allHeroes.getAliveHeroes()) {
+            if(character.getCoords().equals(position)) {
+                if (character.getSide().equals(main.darkside)) {
+                    str = "|" + Colors.GREEN + character.getClassName().charAt(0) + Colors.RESET;
                 } else {
-                    str = "|" + Colors.BLUE + main.ligthside.get(i).getClassName().toUpperCase().charAt(0) + Colors.RESET;
+                    str = "|" + Colors.BLUE + character.getClassName().charAt(0) + Colors.RESET;
                 }
-
             }
         }
         return str;
