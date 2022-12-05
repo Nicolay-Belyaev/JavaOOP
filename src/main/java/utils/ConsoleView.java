@@ -61,7 +61,7 @@ public class ConsoleView {
 
     private static String getChar(CharsCoords position) {
         String str = "| ";
-
+        // мертвые и живые герои не меняются весь вызов метода view. надо вынести обращения к ним на уровень полей класса
         for (BaseHero character : allHeroes.getDeadHeroes()) {
             if(character.getCoords().equals(position)) {
                     str = "|" + Colors.RED + character.getClassName().charAt(0) + Colors.RESET;
