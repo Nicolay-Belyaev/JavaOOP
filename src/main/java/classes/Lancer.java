@@ -7,10 +7,11 @@ import java.util.ArrayList;
 
 public class Lancer extends BaseHero {
 
-    public Lancer(Party side, int x, int y) {
-        super(4, 5, 10, 4, 1, 3, "Lancer", "alive");
+    public Lancer(Party side, int x, int y, int amount) {
+        super(4, 5, 10, 4, 1, 3, 1,"Lancer", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
+        super.amount = amount;
     }
 
     @Override

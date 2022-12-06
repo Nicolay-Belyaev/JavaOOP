@@ -6,10 +6,11 @@ import utils.Party;
 public class Xbowman extends BaseHero {
     private int shots = 16;
 
-    public Xbowman(Party side, int x, int y) {
-        super(6, 3, 11, 4, 2, 3, "Xbowman", "alive");
+    public Xbowman(Party side, int x, int y, int amount) {
+        super(6, 3, 11, 4, 2, 3, 1,"Xbowman", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
+        super.amount = amount;
     }
 
     private void ActionAttack(BaseHero target, double distance) {

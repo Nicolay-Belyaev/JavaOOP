@@ -4,10 +4,11 @@ import utils.Party;
 
 public class Monk extends BaseHero {
 
-    public Monk(Party side, int x, int y) {
-        super(12, 7, 30, 5, -4, -4, "Monk", "alive");
+    public Monk(Party side, int x, int y, int amount) {
+        super(12, 7, 30, 5, -4, -4, 1,"Monk", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
+        super.amount = amount;
     }
 
     @Override

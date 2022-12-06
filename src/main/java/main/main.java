@@ -13,18 +13,16 @@ public class main {
 
     public static void main(String[] args) {
 
+        darkside.addWarlock(1,1);
+        darkside.addRogue(1, 1);
 
-        darkside.addRogue(2);
-        darkside.addWarlock(1);
-        //darkside.addSharpshooter(1);
-        darkside.addRogue(2);
-        //darkside.addPeasant(2);
+        darkside.addRogue(2, 1);
 
-        lightside.addLancer(2);
-        lightside.addMonk(1);
-        //lightside.addPeasant(1);
-        lightside.addLancer(2);
-        //lightside.addCrossbownman(2);
+        lightside.addMonk(1,1);
+        lightside.addLancer(2,1);
+
+        lightside.addLancer(2,1);
+
 
         while (true){
             Scanner sc = new Scanner(System.in);

@@ -4,7 +4,6 @@ import classes.*;
 import main.main;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Party extends ArrayList<BaseHero> {
     public Party() {}
@@ -14,21 +13,21 @@ public class Party extends ArrayList<BaseHero> {
         this.addAll(party2);
     }
 
-    public Party(int partySize) {
-        Random rand = new Random();
-        for (int i = 0; i < partySize; i++) {
-            int charSelector = rand.nextInt(0, 7);
-            switch (charSelector) {
-                case 0 -> this.addPeasant(1);
-                case 1 -> this.addRogue(1);
-                case 2 -> this.addSharpshooter(1);
-                case 3 -> this.addLancer(1);
-                case 4 -> this.addWarlock(1);
-                case 5 -> this.addMonk(1);
-                case 6 -> this.addCrossbownman(1);
-            }
-        }
-    }
+//    public Party(int partySize) {
+//        Random rand = new Random();
+//        for (int i = 0; i < partySize; i++) {
+//            int charSelector = rand.nextInt(0, 7);
+//            switch (charSelector) {
+//                case 0 -> this.addPeasant(1);
+//                case 1 -> this.addRogue(1);
+//                case 2 -> this.addSharpshooter(1);
+//                case 3 -> this.addLancer(1);
+//                case 4 -> this.addWarlock(1);
+//                case 5 -> this.addMonk(1);
+//                case 6 -> this.addCrossbownman(1);
+//            }
+//        }
+//    }
 
     @Override
     public String toString() {
@@ -71,53 +70,53 @@ public class Party extends ArrayList<BaseHero> {
     }
 
     //region методы для добавления персонажей в группу
-    public void addPeasant(int peasants) {
+    public void addPeasant(int peasants, int amount) {
         for (int i = 0; i < peasants; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Peasant(this, x, y));
+            this.add(new Peasant(this, x, y, amount));
         }
     }
-    public void addRogue(int rogues) {
+    public void addRogue(int rogues, int amount) {
         for (int i = 0; i < rogues; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Rogue(this, x, y));
+            this.add(new Rogue(this, x, y, amount));
         }
     }
-    public void addSharpshooter(int sharpshooters) {
+    public void addSharpshooter(int sharpshooters, int amount) {
         for (int i = 0; i < sharpshooters; i++) {
             int x = (this == main.darkside)? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Sharpshooter(this, x, y));
+            this.add(new Sharpshooter(this, x, y, amount));
         }
     }
-    public void addWarlock(int warlocks) {
+    public void addWarlock(int warlocks, int amount) {
         for (int i = 0; i < warlocks; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Warlock(this, x, y));
+            this.add(new Warlock(this, x, y, amount));
         }
     }
-    public void addMonk(int monks) {
+    public void addMonk(int monks, int amount) {
         for (int i = 0; i < monks; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Monk(this, x, y));
+            this.add(new Monk(this, x, y, amount));
         }
     }
-    public void addLancer(int lancer) {
+    public void addLancer(int lancer, int amount) {
         for (int i = 0; i < lancer; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Lancer(this, x, y));
+            this.add(new Lancer(this, x, y, amount));
         }
     }
-    public void addCrossbownman(int crossbownmans) {
+    public void addCrossbownman(int crossbownmans, int amount) {
         for (int i = 0; i < crossbownmans; i++) {
             int x = (this == main.darkside) ? 0 : main.fieldSize-1;
             int y = this.size();
-            this.add(new Xbowman(this, x, y));
+            this.add(new Xbowman(this, x, y, amount));
         }
     }
 
