@@ -14,7 +14,7 @@ public class Warlock extends BaseHero {
 
     private void Attack(Party foes) {
         Pair<BaseHero, Double> closedEnemyAndDistance = getClosedEnemyAndDistance(foes);
-        ActionAttack(closedEnemyAndDistance.getKey());
+        closedEnemyAndDistance.getKey().getAttack(maxDmg);
     }
 
     private void Heal(Party party) {
@@ -43,12 +43,8 @@ public class Warlock extends BaseHero {
             if (character.currentHp < character.maxHp*0.5) {wounded.add(character);}
             if (character.currentAmount < character.initialAmount) {dead.add(character);}
         }
-        if (wounded.size() != 0) {
-            Heal(wounded);
-        }
-        else if (dead.size() != 0) {
-            Resurrection(dead);
-        }
+        if (wounded.size() != 0) {Heal(wounded);}
+        else if (dead.size() != 0) {Resurrection(dead);}
     }
 
     @Override
@@ -56,19 +52,19 @@ public class Warlock extends BaseHero {
         // ВОПРОС: начальные показатели здоровья не меняются всю игру. хорошо бы не считать их на каждом шагу.
         // как это сделать? Пробовал вынести в поля класса, но там при инициации появляются проблемы.
         // только выносить в main?
-        int initialWarlocksHP = side.getInitialClassHp("Warlock");
-        int initialSharpshootersHP = side.getInitialClassHp("Sharpshooter");
-        int initialRoguesHp = side.getInitialClassHp("Rogue");
+        int initialWarlocksHP = side.getClassInitialHp("Warlock");
+        int initialSharpshootersHP = side.getClassInitialHp("Sharpshooter");
+        int initialRoguesHp = side.getClassInitialHp("Rogue");
 
-        int currentWarlocksHP = side.getCurrentClassHp("Warlock");
-        int currentSharpshootersHP = side.getCurrentClassHp("Sharpshooter");
-        int currentRoguesHp = side.getCurrentClassHp("Rogue");
+        int currentWarlocksHP = side.getClassCurrentHp("Warlock");
+        int currentSharpshootersHP = side.getClassCurrentHp("Sharpshooter");
+        int currentRoguesHp = side.getClassCurrentHp("Rogue");
 
-        if (currentWarlocksHP < initialWarlocksHP) {
+        if (currentWarlocksHP < initialWarlocksHP * 0.75) {
             Assist("Warlock");
-        } else if (currentSharpshootersHP < initialSharpshootersHP) {
+        } else if (currentSharpshootersHP < initialSharpshootersHP * 0.75) {
             Assist("Sharpshooter");
-        } else if (currentRoguesHp < initialRoguesHp) {
+        } else if (currentRoguesHp < initialRoguesHp * 0.75) {
             Assist("Rogue");
         } else {
             Attack(foes);
