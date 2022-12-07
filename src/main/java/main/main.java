@@ -14,14 +14,10 @@ public class main {
     public static void main(String[] args) {
 
         darkside.addWarlock(1,1);
-        darkside.addRogue(1, 1);
-
-        darkside.addRogue(2, 1);
-
-        lightside.addMonk(1,1);
-        lightside.addLancer(2,1);
-
-        lightside.addLancer(2,1);
+        darkside.addRogue(4,1);
+        darkside.addRogue(1, 10);
+        lightside.addLancer(5,1);
+        lightside.addLancer(1,12);
 
 
         while (true){

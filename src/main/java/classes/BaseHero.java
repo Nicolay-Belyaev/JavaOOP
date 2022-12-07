@@ -11,7 +11,8 @@ public abstract class BaseHero implements BaseInterface {
     protected int initiative;
     protected int maxDmg;
     protected int minDmg;
-    protected int amount;
+    protected int initialAmount;
+    protected int currentAmount;
     protected String status;
     protected String className;
     protected Party side;
@@ -20,16 +21,17 @@ public abstract class BaseHero implements BaseInterface {
 
     public BaseHero(int offence, int defence,
                     int maxHp, int initiative,
-                    int minDmg, int maxDmg, int amount,
+                    int minDmg, int maxDmg, int initialAmount,
                     String className, String status) {
         this.offence = offence;
         this.defence = defence;
         this.maxHp = maxHp;
+        currentHp = maxHp;
         this.initiative = initiative;
-        this.currentHp = maxHp;
         this.minDmg = minDmg;
         this.maxDmg = maxDmg;
-        this.amount = amount;
+        this.initialAmount = initialAmount;
+        currentAmount = initialAmount;
         this.status = status;
         this.className = className;
     }
@@ -43,18 +45,22 @@ public abstract class BaseHero implements BaseInterface {
 
     protected int DamageCalc(BaseHero target) {
         int damage;
-        if (this.offence - target.defence > 0)      {damage = this.maxDmg;}
-        else if (this.offence - target.defence < 0) {damage = this.minDmg;}
-        else                                        {damage = (this.maxDmg + this.minDmg) / 2;}
-        return damage * this.amount;
+        if (offence - target.defence > 0)      {damage = maxDmg;}
+        else if (offence - target.defence < 0) {damage = minDmg;}
+        else                                   {damage = (maxDmg + minDmg) / 2;}
+        return damage * currentAmount;
     }
 
     public Pair<BaseHero, Double> getClosedEnemyAndDistance (Party foes) {
         Party aliveEnemies = foes.getAliveHeroes();
+        if (aliveEnemies.size() == 0) {
+            System.out.println("Game Over!");
+            System.exit(0);
+        }
         BaseHero closedEnemy = aliveEnemies.get(0);
-        double minDistance = this.coords.distance(closedEnemy.coords);
+        double minDistance = coords.distance(closedEnemy.coords);
         for (BaseHero currentEnemy : aliveEnemies) {
-            double enemyDistance = this.coords.distance(currentEnemy.coords);
+            double enemyDistance = coords.distance(currentEnemy.coords);
             if (enemyDistance < minDistance) {
                 minDistance = enemyDistance;
                 closedEnemy = currentEnemy;
@@ -63,32 +69,40 @@ public abstract class BaseHero implements BaseInterface {
         return new Pair<>(closedEnemy, minDistance);
     }
     protected void getAttack(int damage) {
-        int stackHP = (this.amount - 1) * maxHp + this.currentHp;
-        if (damage >= stackHP) {
-            amount = 0;
-            currentHp = 0;
-        } else {
+        int stackHP = (currentAmount - 1) * maxHp + currentHp;
             stackHP -= damage;
-            this.amount = stackHP / maxHp; // int
-            if (stackHP % maxHp != 0) {
-                this.currentHp = stackHP - this.amount * this.maxHp;
+            if (stackHP <= 0) {
+                currentAmount = 0;
+                currentHp = 0;
+            } else {
+                currentAmount = stackHP / maxHp;
+                if (stackHP % maxHp != 0) {
+                    currentHp = stackHP - currentAmount * maxHp;
+                    currentAmount += 1;
+                }
             }
-        }
         CheckStatus();
     }
 
+    protected void getHeal(int heal) {
+        this.currentHp += heal;
+        if (currentHp > maxHp) { currentHp = maxHp;}
+    }
+
     public void CheckStatus() {
-        this.status = this.amount <= 0? "dead" : "alive";
+        status = currentAmount <= 0? "dead" : "alive";
     }
     //endregion
 
     public String getInfo() {
         return String.format("%s HP: %d/%d Status: %s, Units: %d",
-                this.className, this.currentHp, this.maxHp, this.status, this.amount);
+                className, currentHp, maxHp, status, currentAmount);
     }
 
     public String getStatus() {return status;}
     public CharsCoords getCoords() {return coords;}
     public String getClassName() {return className;}
     public Party getSide() {return side;}
+    public int getInitialStackHp() {return initialAmount * maxHp;}
+    public int getCurrentStackHp() {return (currentAmount - 1) * maxHp + currentHp;}
 }

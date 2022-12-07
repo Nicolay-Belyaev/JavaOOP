@@ -9,7 +9,7 @@ public class Peasant extends BaseHero {
         super(1, 1, 1, 3, 1, 1, 1,"Peasant", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-        super.amount = amount;
+        super.initialAmount = amount;
     }
 
     @Override

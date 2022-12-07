@@ -10,7 +10,7 @@ public class Sharpshooter extends BaseHero {
         super(12, 10, 15, 9, 8, 10, 1,"Sharpshooter", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-        super.amount = amount;
+        super.initialAmount = amount;
     }
 
     @Override

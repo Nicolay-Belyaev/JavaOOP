@@ -11,7 +11,7 @@ public class Lancer extends BaseHero {
         super(4, 5, 10, 4, 1, 3, 1,"Lancer", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-        super.amount = amount;
+        super.initialAmount = amount;
     }
 
     @Override

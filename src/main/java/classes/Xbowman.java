@@ -10,12 +10,12 @@ public class Xbowman extends BaseHero {
         super(6, 3, 11, 4, 2, 3, 1,"Xbowman", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-        super.amount = amount;
+        super.initialAmount = amount;
     }
 
     private void ActionAttack(BaseHero target, double distance) {
         int damage = DamageCalc(target);
-        damage = distance < this.initiative ? damage : damage/2;
+        damage = distance < initiative ? damage : damage/2;
         target.getAttack(damage);
     }
 

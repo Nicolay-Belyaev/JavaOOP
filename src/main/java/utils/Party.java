@@ -69,6 +69,26 @@ public class Party extends ArrayList<BaseHero> {
         return oneClassHeroes;
     }
 
+    public int getInitialClassHp(String heroClass) {
+        int initialClassHp = 0;
+        for (BaseHero character : this) {
+            if (character.getClassName().equals(heroClass)) {
+                initialClassHp += character.getInitialStackHp();
+            }
+        }
+        return initialClassHp;
+    }
+
+    public int getCurrentClassHp(String heroClass) {
+        int currentClassHp = 0;
+        for (BaseHero character : this) {
+            if (character.getClassName().equals(heroClass)) {
+                currentClassHp += character.getCurrentStackHp();
+            }
+        }
+        return currentClassHp;
+    }
+
     //region методы для добавления персонажей в группу
     public void addPeasant(int peasants, int amount) {
         for (int i = 0; i < peasants; i++) {

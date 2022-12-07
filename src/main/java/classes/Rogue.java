@@ -10,7 +10,7 @@ public class Rogue extends BaseHero {
         super(8, 3, 10, 6, 2, 4, 1 ,"Rogue", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-        super.amount = amount;
+        super.initialAmount = amount;
     }
 
     @Override

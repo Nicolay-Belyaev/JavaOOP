@@ -8,7 +8,7 @@ public class Monk extends BaseHero {
         super(12, 7, 30, 5, -4, -4, 1,"Monk", "alive");
         super.side = side;
         super.coords = new CharsCoords(x, y);
-        super.amount = amount;
+        super.initialAmount = amount;
     }
 
     @Override
