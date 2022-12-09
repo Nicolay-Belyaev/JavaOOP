@@ -12,23 +12,6 @@ public class Party extends ArrayList<BaseHero> {
         this.addAll(party1);
         this.addAll(party2);
     }
-
-//    public Party(int partySize) {
-//        Random rand = new Random();
-//        for (int i = 0; i < partySize; i++) {
-//            int charSelector = rand.nextInt(0, 7);
-//            switch (charSelector) {
-//                case 0 -> this.addPeasant(1);
-//                case 1 -> this.addRogue(1);
-//                case 2 -> this.addSharpshooter(1);
-//                case 3 -> this.addLancer(1);
-//                case 4 -> this.addWarlock(1);
-//                case 5 -> this.addMonk(1);
-//                case 6 -> this.addCrossbownman(1);
-//            }
-//        }
-//    }
-
     @Override
     public String toString() {
         StringBuilder resString = new StringBuilder();

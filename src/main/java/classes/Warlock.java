@@ -49,9 +49,6 @@ public class Warlock extends BaseHero {
 
     @Override
     public void step(Party foes) {
-        // ВОПРОС: начальные показатели здоровья не меняются всю игру. хорошо бы не считать их на каждом шагу.
-        // как это сделать? Пробовал вынести в поля класса, но там при инициации появляются проблемы.
-        // только выносить в main?
         int initialWarlocksHP = side.getClassInitialHp("Warlock");
         int initialSharpshootersHP = side.getClassInitialHp("Sharpshooter");
         int initialRoguesHp = side.getClassInitialHp("Rogue");
